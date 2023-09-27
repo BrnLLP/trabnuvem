@@ -64,7 +64,7 @@
         </div>
     </div>
     <script>
-        axios.get('http://localhost:3000/aluno')
+        axios.get('https://trabnuvem-w4no.vercel.app/aluno')
             .then(function (response){
              document.getElementById('exibir').innerHTML = response.data.map(function (aluno){
                 return (
