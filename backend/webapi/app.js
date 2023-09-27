@@ -4,7 +4,7 @@ async function connect(){
   if(global.db) return global.db;
     const conn = await MongoClient.connect("mongodb+srv://vercel-admin-user:TV28kKtg9HBfhDPn@cluster0.xgbzj7z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
   if(!conn) return new Error("Can't connect");
-    global.db = await conn.db("vercel-admin-user");
+    global.db = await conn.db("devcloud");
   return global.db;
 }
 
