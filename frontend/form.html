@@ -40,7 +40,7 @@
 
         if (id !== null) {
 
-            axios.get('http://localhost:3000/aluno/'+ id +'')
+            axios.get('https://trabnuvem-w4no.vercel.app/aluno/'+ id +'')
             .then(function (response) {
                 document.getElementById('_id').value            =   response.data._id;
                 document.getElementById('matricula').value      =   response.data.matricula;
@@ -150,7 +150,7 @@
 
             if (_id === '') {
 
-                axios.post("http://localhost:3000/aluno", {
+                axios.post("https://trabnuvem-w4no.vercel.app/aluno", {
 
                     matricula: parseInt(matricula),
                     nome: nome,
@@ -173,7 +173,7 @@
 
             } else {
                 
-                axios.put('http://localhost:3000/aluno/'+ _id +'', {
+                axios.put('https://trabnuvem-w4no.vercel.app/aluno/'+ _id +'', {
 
                     matricula: parseInt(matricula),
                     nome: nome,
