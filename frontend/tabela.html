@@ -84,7 +84,7 @@
             });
 
         function excluirAluno(id) {
-            axios.delete('http://localhost:3000/aluno/'+ id +'')
+            axios.delete('https://trabnuvem-w4no.vercel.app/aluno/'+ id +'')
             .then(function(response){
                 location.reload();
             })
