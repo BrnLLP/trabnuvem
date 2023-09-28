@@ -189,6 +189,55 @@ router.delete('/curso/:id', async function(req, res, next){
   }
 });
 
+/* GET material */
+router.get('/material/:id?', async function(req, res, next) {
+  try {
+    const db = await connect();
+    if (req.params.id)
+      res.json(await db.collection("material").findOne({_id: new ObjectId(req.params.id)}));
+    else
+      res.json(await db.collection("material").find().toArray());
+  } catch(ex) {
+    console.log(ex);
+    res.status(400).json({erro: `${ex}`});
+  }
+});
+
+// POST /material
+router.post('/material', async function(req, res, next){
+  try {
+    const material = req.body;
+    const db = await connect();
+    res.json(await db.collection("material").insertOne(material));
+  } catch(ex) {
+    console.log(ex);
+    res.status(400).json({erro: `${ex}`});
+  }
+});
+
+// PUT /material/{id}
+router.put('/material/:id', async function(req, res, next){
+  try {
+    const material = req.body;
+    const db = await connect();
+    res.json(await db.collection("material").updateOne({_id: new ObjectId(req.params.id)}, {$set: material}));
+  } catch(ex) {
+    console.log(ex);
+    res.status(400).json({erro: `${ex}`});
+  }
+});
+
+// DELETE /material/{id}
+router.delete('/material/:id', async function(req, res, next){
+  try {
+    const db = await connect();
+    res.json(await db.collection("material").deleteOne({_id: new ObjectId(req.params.id)}));
+  } catch(ex) {
+    console.log(ex);
+    res.status(400).json({erro: `${ex}`});
+  }
+});
+
 app.use('/', router);
 
 //inicia o servidor
