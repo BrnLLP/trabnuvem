@@ -1,72 +1,97 @@
 <!DOCTYPE html>
-<!-- saved from url=(0049)https://getbootstrap.com/docs/5.0/examples/cover/ -->
-<html lang="en" class="h-100"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.84.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Escolar</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
-
-    
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
-
-
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-<link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
-<meta name="theme-color" content="#7952b3">
-
-
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
         }
-      }
+        
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            color: #007BFF;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+        
+        .feature-description {
+            font-size: 16px;
+            margin-top: 10px;
+        }
     </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="home.css" rel="stylesheet">
-  </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
-    
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">Sistema Escolar</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link" href="tabela.html">Entrar</a>
-      </nav>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (seu código CSS e metadados aqui) ... -->
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao Sistema Escolar</h1>
+    </header>
+    <div class="container">
+        <h2>Recursos do Sistema Escolar</h2>
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">&#9733;</span>
+                <h3 class="feature-title">Gerenciamento de Alunos</h3>
+                <p class="feature-description">Cadastre, atualize e acompanhe informações dos alunos.</p>
+                <a href="tabela.html" class="btn btn-primary">Ver Alunos</a>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">&#9997;</span>
+                <h3 class="feature-title">Registro de Professores</h3>
+                <p class="feature-description">Mantenha um registro de todos os professores da escola.</p>
+                <a href="tabela-funcionario.html" class="btn btn-primary">Ver Professores</a>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">&#128218;</span>
+                <h3 class="feature-title">Cursos e Materiais</h3>
+                <p class="feature-description">Gerencie cursos e materiais oferecidos pela escola.</p>
+                <a href="tabela-curso.html" class="btn btn-primary">Ver Cursos</a>
+                <br></br>
+                <a href="tabela-materiais.html" class="btn btn-primary">Ver Materiais</a>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main class="px-3">
-    <h1>Bem vindo</h1>
-    <p class="lead">Seja bem vindo ao sistema escolar</p>
-
-  </main>
-</div>
-
-
-    
-  
-
-</body></html>
+</body>
+</html>
