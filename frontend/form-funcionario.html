@@ -26,7 +26,7 @@
                   <a class="nav-link" href="form.html" style="color: black;">Cadastro</a>
               </li>
                <li class="nav-item">
-                  <a class="nav-link" href="tabela.html" style="color: black;">Gestão Administrativa</a>
+                  <a class="nav-link" href="tabela-funcionario.html" style="color: black;">Gestão Administrativa</a>
               </li>
           </ul>
   </div>
@@ -43,13 +43,11 @@
             axios.get('https://trabnuvem-w4no.vercel.app/funcionario/'+ id +'')
             .then(function (response) {
                 document.getElementById('_id').value            =   response.data._id;
-                document.getElementById('matricula').value      =   response.data.matricula;
-                document.getElementById('matricula').readOnly   =   true;
                 document.getElementById('nome').value           =   response.data.nome;
-                document.getElementById('disciplina').value     =   response.data.disciplina;
+                document.getElementById('cargo').value     =   response.data.cargo;
+                document.getElementById('salario').value     =   response.data.salario;
                 document.getElementById('email').value          =   response.data.email;
-                document.getElementById('senha').value          =   response.data.senha;
-                 document.getElementById('senha').readOnly      =   true
+                
 
             })
             .catch(function (err) {
@@ -82,7 +80,7 @@
             <h1 id="titulo"><script>titulo();</script></h1>
             <hr>
             <div id="output"></div>
-            <a class="icon-link" href="tabela.html">
+            <a class="icon-link" href="tabela-funcionario.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                 </svg>
@@ -98,25 +96,20 @@
                 <form action="" id="form">
                     <input type="hidden" class="form-control" id="_id">
                     <div class="mb-3">
-                        <label for="matricula" class="form-label">Matrícula</label>
-                        <input type="text" class="form-control" id="matricula">
-                        
-                    </div>
-                    <div class="mb-3">
                         <label for="nome" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cargo" class="form-label">Cargo</label>
+                        <input type="text" class="form-control" id="cargo">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">E-Mail</label>
                         <input type="text" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
-                        <label for="senha" class="form-label">Senha</label>
-                        <input type="password" class="form-control" id="senha">
-                    </div>
-                    <div class="mb-3">
-                        <label for="disciplina" class="form-label">Disciplina</label>
-                        <input type="text" class="form-control" id="disciplina">
+                        <label for="salario" class="form-label">Salario</label>
+                        <input type="text" class="form-control" id="salario">
                     </div>
                     <div class="mb-3">
 
@@ -131,31 +124,30 @@
         </div>
     </div>
     <script>
-        const loginForm = document.getElementById('loginForm');
+        const FuncionarioForm = document.getElementById('funcionarioForm');
         const form            =   document.getElementById("form");
         const _idInput        =   document.getElementById("_id");
-        const matriculaInput  =   document.getElementById("matricula");
+        const salarioInput  =   document.getElementById("salario");
         const nomeInput       =   document.getElementById("nome");
         const emailInput       =   document.getElementById("email");
-        const disciplinaInput =   document.getElementById("disciplina");
-        const senhaInput =   document.getElementById("senha");
+        const cargoInput =   document.getElementById("cargo");
+        
 
         btn.addEventListener("click", () => {
             const _id         =   _idInput.value;
-            const matricula   =   matriculaInput.value;
             const nome        =   nomeInput.value;
-            const disciplina  =   disciplinaInput.value;
-            const senha       =   senhaInput.value;
+            const cargo       =   cargoInput.value;
+            const salario     =   salarioInput.value;
             const email       =   emailInput.value;
+            
 
             if (_id === '') {
 
-                axios.post("https://trabnuvem-w4no.vercel.app/aluno", {
+                axios.post("https://trabnuvem-w4no.vercel.app/funcionario", {
 
-                    matricula: parseInt(matricula),
                     nome: nome,
-                    disciplina: disciplina,
-                    senha : senha,
+                    cargo: cargo,
+                    salario : parseInt(salario),
                     email : email
 
                 })
@@ -173,12 +165,12 @@
 
             } else {
                 
-                axios.put('https://trabnuvem-w4no.vercel.app/aluno/'+ _id +'', {
+                axios.put('https://trabnuvem-w4no.vercel.app/funcionario/'+ _id +'', {
 
-                    matricula: parseInt(matricula),
                     nome: nome,
-                    disciplina: disciplina,
-                    senha : senha
+                    cargo: cargo,
+                    salario : parseInt(salario),
+                    email : email
 
                 })
                 .then((response) => {
