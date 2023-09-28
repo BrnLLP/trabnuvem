@@ -40,9 +40,8 @@
                   <tr>
                     <th scope="col"></th>
                     <th scope="col">ID</th>
-                    <th scope="col">Matrícula</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Disciplina</th>
+                    <th scope="col">Descricao</th>
                     <th scope="col"></th>
 
                   </tr>
@@ -61,6 +60,13 @@
                     </svg>
                 </a>
                 <br></br>
+                <a class="icon-link" href="form-curso.html">
+                    Cadastrar curso
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                    </svg>
+                </a>
+                <br></br>
                 <a class="icon-link" href="form-funcionario.html">
                     Cadastrar funcionario
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
@@ -68,27 +74,27 @@
                     </svg>
                 </a>
                 <br></br>
-                <a class="icon-link" href="form-curso.html">
-                    Cadastrar curso
+                <a class="icon-link" href="form-material.html">
+                    Cadastrar material
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                     </svg>
                 </a>
+                
             </div>
         </div>
     </div>
     <script>
-        axios.get('https://trabnuvem-w4no.vercel.app/aluno')
+        axios.get('https://trabnuvem-w4no.vercel.app/curso')
             .then(function (response){
-             document.getElementById('exibir').innerHTML = response.data.map(function (aluno){
+             document.getElementById('exibir').innerHTML = response.data.map(function (curso){
                 return (
                     '<tr>' +
-                        '<td> <a class="btn btn-outline-info btn-sm" href="#" role="button" onclick="javascript:return editarAluno(`'+aluno._id+'`);">Editar</a> </td>' +
-                        '<th scope="row">'+ aluno._id +'</th>' +
-                        '<td>'+ aluno.matricula +'</td>' +
-                        '<td>'+ aluno.nome +'</td>' +
-                        '<td>'+ aluno.disciplina +'</td>' +
-                        '<td> <a class="btn btn-outline-danger btn-sm" href="#" role="button" onclick="javascript:return excluirAluno(`'+aluno._id+'`);">Excluir</a> </td>' +
+                        '<td> <a class="btn btn-outline-info btn-sm" href="#" role="button" onclick="javascript:return editarcurso(`'+curso._id+'`);">Editar</a> </td>' +
+                        '<th scope="row">'+ curso._id +'</th>' +
+                        '<td>'+ curso.nome +'</td>' +
+                        '<td>'+ curso.descricao +'</td>' +
+                        '<td> <a class="btn btn-outline-danger btn-sm" href="#" role="button" onclick="javascript:return excluircurso(`'+curso._id+'`);">Excluir</a> </td>' +
                     '</tr>'
                 );
              }).join('');   
@@ -97,8 +103,8 @@
                 document.getElementById('output').innerHTML = '<div class="alert alert-danger" role="alert">'+ err.message +'</div>';
             });
 
-        function excluirAluno(id) {
-            axios.delete('https://trabnuvem-w4no.vercel.app/aluno/'+ id +'')
+        function excluircurso(id) {
+            axios.delete('https://trabnuvem-w4no.vercel.app/curso/'+ id +'')
             .then(function(response){
                 location.reload();
             })
@@ -107,8 +113,8 @@
             });
         }
 
-        function editarAluno(id) {
-            window.location.href = 'form.html?id='+ id +'';
+        function editarcurso(id) {
+            window.location.href = 'form-curso.html?id='+ id +'';
         }
             
     </script>
