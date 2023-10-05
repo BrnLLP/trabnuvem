@@ -158,6 +158,29 @@
                                             <strong>Perfeito!</strong> Cadastro efetuado com sucesso.
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>`;
+                                          
+                
+                })
+                .catch(function (err){
+                    document.getElementById("output").innerHTML = '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>'+ err.message +'</strong><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+                })
+                 axios.post("https://trabnuvem-w4no.vercel.app/avaliacao", {
+                    nome: nome,
+                    q1: 0,
+                    q2: 0,
+                    q3: 0,
+                    q4: 0,
+                    q5: 0,
+                    q6: 0,
+                    q7: 0
+                    
+
+                })
+                .then((response) => {
+                    output.innerHTML    =   `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Perfeito!</strong> Cadastro efetuado com sucesso.
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                            </div>`;
                     form.reset()                       
                 
                 })
